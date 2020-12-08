@@ -12,7 +12,7 @@ module load slurm
 #module load matlab/r2020a
 # Execute the program
 export OMP_NUM_THREADS=4
-./hellow
+./mandel-openmp
 
 ## Some examples:
 # mpirun python3 script.py

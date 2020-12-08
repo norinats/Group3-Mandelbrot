@@ -11,7 +11,7 @@ module load slurm
 module load cuda10.0
 
 # Execute the program
-./cudaMandy 5000000 32 32
+./mandel-cuda 5000000 32 32
 
 ## Some examples:
 # mpirun python3 script.py
