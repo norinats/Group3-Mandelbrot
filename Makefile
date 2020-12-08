@@ -2,7 +2,6 @@ CC		:= gcc
 CFLAGS	:= -std=c99 -Wall -Wextra -g
 RANDFLAGS := -std=gnu99 -Wall -Wextra -g
 OMPFLAG := -fopenmp
-CUDAFLAG := 
 
 BIN		:= ./bin
 SRC		:= ./src
@@ -19,7 +18,8 @@ mandel-openmp: $(SRC)/mandel-openmp.c Makefile
 	$(CC) $(CFLAGS) $(OMPFLAG) $(SRC)/mandel-openmp.c -o $(BIN)/mandel-openmp
 
 mandel-cuda: $(SRC)/mandel-cuda.cu
-	$(CC) $(CFLAGS) $(CUDAFLAG) $(SRC)/mandel-openmp.c -o $(BIN)/mandel-openmp
+	nvcc -o $@ $(SRC)/mandel-cuda.cu $(BIN)/mandel-cuda
+	#$(CC) $(CFLAGS) $(CUDAFLAG) $(SRC)/mandel-cuda.c -o $(BIN)/mandel-cuda
 
 tests:
 	-$(TEST)/unit_tests.sh test_logs.txt
